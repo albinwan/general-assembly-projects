@@ -38,15 +38,26 @@ This part covers the actual modelling aspects of this project. Modelling include
 
 ## Data Sources
 
-[GainIt subreddit](https://www.reddit.com/r/gainit/)
+[r/GainIt](https://www.reddit.com/r/gainit/)
 
-[LoseIt subreddit](https://www.reddit.com/r/loseit)
+[r/LoseIt](https://www.reddit.com/r/loseit)
 
 
 ## Conclusions & Recommendations
 
-Model 2 performed the best and we can conclude that TF-IDF Vectorizer alongside Logistic Regression performed the best. It was interesting to throw in additional classifiers like Naives Bayes and Random Forest to test and see how they performed. There were also keywords which we picked up from our initial EDA section that contributed well to the classifying model ('muscle', 'bulk', 'squat' etc). 
+Overall Model 2 performed the best if we compare on accuracy. Model 2 is a combination of TF-IDF Vectorizer alongside Logistic Regression. It was interesting to include additional classifiers like Naives Bayes and Random Forest to test and see how they performed. Though accuracy did not match up with Logistic Regression. Random Forest did not perform very well on all the confusion metrics, and my best guess is due to the sparsity of our dataset which probably made it unproductive for Random Forest on its random feature split.
 
-In the problem statement I stated concerns regarding the similarity on the content of both subreddits. However, given that there were ample data for us to fit our model on, it turned out that our models performed relatively well on unseen data. Though there were similar keywords in both subreddits, there were distinct words within the subreddits which were sufficient to classify the subreddits respectively.
+In the problem statement I stated concerns regarding the similarity on the content of both subreddits. However, given that there were ample data for us to fit our model on, it turned out that our models performed relatively well on unseen data. Though there were similar keywords in both subreddits, there were distinct words within the subreddits which were sufficient to classify the subreddits respectively. Its noteworthy that each models placed different strength on different keywords. There were also keywords which I picked up from my initial EDA section that contributed well to the classifying model ('muscle', 'bulk', 'squat' etc).
 
-Given the nature of the subreddits, I think it would be interesting to patch in geographical data or gender of users to see if there are any interesting findings from there. Perhaps some region of the world or a specific gender may be more interested in weight loss as compared to weight gain than the other.
+## Recommendations
+
+If one wishes to strongly classify his or her Reddit post as part of r/GainIt, the model recommends to use this list of possible words in the body ('bulk', 'muscle', 'squat', 'rep', 'set', 'lift', 'program', 'bench', 'protein')
+
+If one wishes to strongly classify his or her Reddit post as part of r/LoseIt, the model recommends to use this list of possible words in the body ('deficit', 'losing weight', 'feel', 'journey', 'calorie', 'want', 'losing', 'pound', 'weight')
+
+## Additional data points to consider
+1. User's geographical data
+We can potentially patch in geographical data to test and see if there are regions in the world that are more interested in losing or gaining weight. Are Asians more inclined to weight gain as opposed to weight loss? Could this be a metric marketing companies can use to target their audience?
+
+2. User's gender data
+Similar to above, we can also postulate and test to see if a specific gender is more inclined to gain or lose weight
